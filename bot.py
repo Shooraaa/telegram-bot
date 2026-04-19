@@ -49,13 +49,11 @@ service.permissions().create(
 ).execute()
 
 return f"https://drive.google.com/file/d/{file.get('id')}/view"
-```
 
 def process_download(update, context, mode):
 url = context.user_data.get("url")
 update.callback_query.message.reply_text("⚡ Downloading...")
 
-```
 ydl_opts = {
     'format': 'best',
     'outtmpl': 'file_%(id)s.%(ext)s'
@@ -79,7 +77,6 @@ try:
 
 except Exception as e:
     update.callback_query.message.reply_text(f"Error: {e}")
-```
 
 def start(update, context):
 update.message.reply_text("Send link")
@@ -87,14 +84,12 @@ update.message.reply_text("Send link")
 def handle_link(update, context):
 context.user_data['url'] = update.message.text
 
-```
 keyboard = [
     [InlineKeyboardButton("Video", callback_data='video')],
     [InlineKeyboardButton("Audio", callback_data='audio')]
 ]
 
 update.message.reply_text("Choose:", reply_markup=InlineKeyboardMarkup(keyboard))
-```
 
 def button(update, context):
 query = update.callback_query

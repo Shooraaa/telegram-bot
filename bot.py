@@ -15,9 +15,8 @@ MAX_SIZE = 50 * 1024 * 1024
 SCOPES = ['https://www.googleapis.com/auth/drive.file']
 
 def upload_to_drive(file_name):
-creds = None
+    creds = None
 
-```
 if not os.path.exists("credentials.json"):
     with open("credentials.json", "w") as f:
         f.write(os.environ.get("GOOGLE_CREDENTIALS"))
